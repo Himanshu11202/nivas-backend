@@ -1,0 +1,102 @@
+package com.society.controller;
+
+import com.society.entity.*;
+import com.society.service.AdminService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.*;
+
+import java.math.BigDecimal;
+import java.util.List;
+import java.util.Map;
+
+@RestController
+@RequestMapping("/api/admin")
+@PreAuthorize("hasRole('ADMIN')")
+@CrossOrigin(origins = "http://localhost:3000")
+public class AdminController {
+
+    @Autowired
+    private AdminService adminService;
+
+    // Dashboard
+    @GetMapping("/dashboard")
+    public ResponseEntity<Map<String, Object>> getDashboardStats() {
+        Map<String, Object> stats = adminService.getDashboardStats();
+        return ResponseEntity.ok(stats);
+    }
+
+    // User Management
+    @GetMapping("/residents/pending")
+    public ResponseEntity<List<User>> getPendingResidents() {
+        List<User> residents = adminService.getPendingResidents();
+        return ResponseEntity.ok(residents);
+    }
+
+    @PutMapping("/residents/{id}/approve")
+    public ResponseEntity<User> approveResident(@PathVariable Long id) {
+        User user = adminService.approveResident(id);
+        return ResponseEntity.ok(user);
+    }
+
+    @PutMapping("/residents/{id}/reject")
+    public ResponseEntity<User> rejectResident(@PathVariable Long id) {
+        User user = adminService.rejectResident(id);
+        return ResponseEntity.ok(user);
+    }
+
+    @GetMapping("/residents")
+    public ResponseEntity<List<User>> getAllResidents() {
+        List<User> residents = adminService.getAllResidents();
+        return ResponseEntity.ok(residents);
+    }
+
+    // Flat Management
+    @PostMapping("/flats")
+    public ResponseEntity<Flat> createFlat(@RequestBody Flat flat) {
+        Flat createdFlat = adminService.createFlat(flat);
+        return ResponseEntity.ok(createdFlat);
+    }
+
+    @PutMapping("/flats/{id}")
+    public ResponseEntity<Flat> updateFlat(@PathVariable Long id, @RequestBody Flat flatDetails) {
+        Flat updatedFlat = adminService.updateFlat(id, flatDetails);
+        return ResponseEntity.ok(updatedFlat);
+    }
+
+    @DeleteMapping("/flats/{id}")
+    public ResponseEntity<Void> deleteFlat(@PathVariable Long id) {
+        adminService.deleteFlat(id);
+        return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/flats")
+    public ResponseEntity<List<Flat>> getAllFlats() {
+        List<Flat> flats = adminService.getAllFlats();
+        return ResponseEntity.ok(flats);
+    }
+
+    // Maintenance Management
+    @PostMapping("/maintenance/generate")
+    public ResponseEntity<Void> generateMonthlyMaintenance(@RequestBody Map<String, Object> request) {
+        int month = (int) request.get("month");
+        int year = (int) request.get("year");
+        BigDecimal amount = new BigDecimal(request.get("amount").toString());
+        adminService.generateMonthlyMaintenance(month, year, amount);
+        return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/maintenance/reports")
+    public ResponseEntity<Map<String, Object>> getPaymentReports() {
+        Map<String, Object> reports = adminService.getPaymentReports();
+        return ResponseEntity.ok(reports);
+    }
+
+    // Attendance Report
+    @GetMapping("/attendance/stats")
+    public ResponseEntity<Map<String, Object>> getAttendanceStats() {
+        Map<String, Object> stats = adminService.getAttendanceReport();
+        return ResponseEntity.ok(stats);
+    }
+}
