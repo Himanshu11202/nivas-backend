@@ -3,6 +3,7 @@ package com.society.service;
 import com.society.dto.AuthResponse;
 import com.society.dto.LoginRequest;
 import com.society.dto.RegisterRequest;
+import com.society.entity.Notification;
 import com.society.entity.User;
 import com.society.repository.UserRepository;
 import com.society.security.JwtUtils;
@@ -28,6 +29,9 @@ public class AuthService {
 
     @Autowired
     private JwtUtils jwtUtils;
+
+    @Autowired
+    private NotificationService notificationService;
 
     public AuthResponse login(LoginRequest loginRequest) {
         Authentication authentication = authenticationManager.authenticate(
@@ -86,6 +90,18 @@ public class AuthService {
         }
 
         User savedUser = userRepository.save(user);
+
+        // Send notification to all admins if user status is PENDING
+        if (savedUser.getStatus() == User.UserStatus.PENDING) {
+            List<User> admins = userRepository.findByRole(User.Role.ADMIN);
+            for (User admin : admins) {
+                Notification notification = new Notification();
+                notification.setUserId(admin.getId());
+                notification.setMessage("New resident registration pending approval: " + savedUser.getName() + " - " + savedUser.getEmail());
+                notification.setIsRead(false);
+                notificationService.createNotification(notification);
+            }
+        }
 
         String jwt = jwtUtils.generateToken(savedUser.getEmail(), savedUser.getRole().name());
 
