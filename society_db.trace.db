@@ -2487,3 +2487,23 @@ select count(*) from maintenance m1_0 [42102-224]
 2026-04-26 16:23:35.970735+05:30 jdbc[18]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
 select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:37:56.304269+05:30 jdbc[16]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-224]
+2026-04-26 16:38:30.977326+05:30 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select b1_0.id,b1_0.amount,b1_0.created_at,b1_0.description,b1_0.flat_number,b1_0.[*]month,b1_0.paid_at,b1_0.status,b1_0.user_id,b1_0.year from bills b1_0 where b1_0.user_id=? order by b1_0.created_at desc"; expected "identifier"; SQL statement:
+select b1_0.id,b1_0.amount,b1_0.created_at,b1_0.description,b1_0.flat_number,b1_0.month,b1_0.paid_at,b1_0.status,b1_0.user_id,b1_0.year from bills b1_0 where b1_0.user_id=? order by b1_0.created_at desc [42001-224]
+2026-04-26 16:38:31.072050+05:30 jdbc[16]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "BILLS" not found; SQL statement:
+select count(b1_0.id) from bills b1_0 where b1_0.user_id=? and b1_0.status=? [42102-224]
+2026-04-26 16:38:33.476245+05:30 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select b1_0.id,b1_0.amount,b1_0.created_at,b1_0.description,b1_0.flat_number,b1_0.[*]month,b1_0.paid_at,b1_0.status,b1_0.user_id,b1_0.year from bills b1_0 where b1_0.user_id=? order by b1_0.created_at desc"; expected "identifier"; SQL statement:
+select b1_0.id,b1_0.amount,b1_0.created_at,b1_0.description,b1_0.flat_number,b1_0.month,b1_0.paid_at,b1_0.status,b1_0.user_id,b1_0.year from bills b1_0 where b1_0.user_id=? order by b1_0.created_at desc [42001-224]
+2026-04-26 16:38:36.654851+05:30 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select b1_0.id,b1_0.amount,b1_0.created_at,b1_0.description,b1_0.flat_number,b1_0.[*]month,b1_0.paid_at,b1_0.status,b1_0.user_id,b1_0.year from bills b1_0 where b1_0.user_id=? order by b1_0.created_at desc"; expected "identifier"; SQL statement:
+select b1_0.id,b1_0.amount,b1_0.created_at,b1_0.description,b1_0.flat_number,b1_0.month,b1_0.paid_at,b1_0.status,b1_0.user_id,b1_0.year from bills b1_0 where b1_0.user_id=? order by b1_0.created_at desc [42001-224]
+2026-04-26 16:38:38.210653+05:30 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select b1_0.id,b1_0.amount,b1_0.created_at,b1_0.description,b1_0.flat_number,b1_0.[*]month,b1_0.paid_at,b1_0.status,b1_0.user_id,b1_0.year from bills b1_0 where b1_0.user_id=? order by b1_0.created_at desc"; expected "identifier"; SQL statement:
+select b1_0.id,b1_0.amount,b1_0.created_at,b1_0.description,b1_0.flat_number,b1_0.month,b1_0.paid_at,b1_0.status,b1_0.user_id,b1_0.year from bills b1_0 where b1_0.user_id=? order by b1_0.created_at desc [42001-224]
+2026-04-26 16:38:38.220567+05:30 jdbc[17]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "BILLS" not found; SQL statement:
+select count(b1_0.id) from bills b1_0 where b1_0.user_id=? and b1_0.status=? [42102-224]
