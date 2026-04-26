@@ -1604,3 +1604,886 @@ select b1_0.id,b1_0.amount,b1_0.created_at,b1_0.description,b1_0.flat_number,b1_
 2026-04-26 11:36:52.227002+05:30 jdbc[8]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select b1_0.id,b1_0.amount,b1_0.created_at,b1_0.description,b1_0.flat_number,b1_0.[*]month,b1_0.paid_at,b1_0.status,b1_0.user_id,b1_0.year from bills b1_0 where b1_0.user_id=? order by b1_0.created_at desc"; expected "identifier"; SQL statement:
 select b1_0.id,b1_0.amount,b1_0.created_at,b1_0.description,b1_0.flat_number,b1_0.month,b1_0.paid_at,b1_0.status,b1_0.user_id,b1_0.year from bills b1_0 where b1_0.user_id=? order by b1_0.created_at desc [42001-224]
+2026-04-26 15:49:25.334645+05:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-224]
+2026-04-26 15:57:19.461751+05:30 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 15:57:19.460746+05:30 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 15:57:24.380268+05:30 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 15:57:24.397073+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 15:57:29.327187+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 15:57:29.329204+05:30 jdbc[7]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 15:57:34.408883+05:30 jdbc[7]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 15:57:34.481404+05:30 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 15:57:39.322672+05:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 15:57:39.335150+05:30 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 15:57:44.311621+05:30 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 15:57:44.337604+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 15:57:49.318411+05:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 15:57:49.351392+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 15:57:51.828376+05:30 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "BILLS" not found; SQL statement:
+select count(*) from bills b1_0 [42102-224]
+2026-04-26 15:57:54.337774+05:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 15:57:54.353172+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 15:57:55.522058+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "BILLS" not found; SQL statement:
+select count(*) from bills b1_0 [42102-224]
+2026-04-26 15:57:55.576262+05:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select b1_0.id,b1_0.amount,b1_0.created_at,b1_0.description,b1_0.flat_number,b1_0.[*]month,b1_0.paid_at,b1_0.status,b1_0.user_id,b1_0.year from bills b1_0 order by b1_0.created_at desc"; expected "identifier"; SQL statement:
+select b1_0.id,b1_0.amount,b1_0.created_at,b1_0.description,b1_0.flat_number,b1_0.month,b1_0.paid_at,b1_0.status,b1_0.user_id,b1_0.year from bills b1_0 order by b1_0.created_at desc [42001-224]
+2026-04-26 15:57:59.318644+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 15:57:59.345371+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 15:58:04.316275+05:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 15:58:04.351547+05:30 jdbc[7]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 15:58:09.312135+05:30 jdbc[7]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 15:58:09.336933+05:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 15:58:14.314791+05:30 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 15:58:14.335194+05:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 15:58:19.328687+05:30 jdbc[7]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 15:58:19.365264+05:30 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 15:58:24.300739+05:30 jdbc[7]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 15:58:24.319646+05:30 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 15:58:29.318650+05:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 15:58:29.334863+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 15:58:34.306548+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 15:58:34.330068+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 15:58:39.316386+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 15:58:39.333920+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 15:58:44.344500+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 15:58:44.365331+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 15:58:49.308510+05:30 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 15:58:49.326820+05:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 15:58:54.310031+05:30 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 15:58:54.328097+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 15:58:59.309456+05:30 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 15:58:59.332498+05:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 15:59:04.328348+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 15:59:04.340154+05:30 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 15:59:09.305725+05:30 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 15:59:09.327598+05:30 jdbc[7]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 15:59:14.311370+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 15:59:14.337934+05:30 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 15:59:19.324590+05:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 15:59:19.346342+05:30 jdbc[7]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 15:59:24.324423+05:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 15:59:24.325964+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 15:59:29.298258+05:30 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 15:59:29.341362+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 15:59:34.319528+05:30 jdbc[7]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 15:59:34.319528+05:30 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 15:59:39.335502+05:30 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 15:59:39.352967+05:30 jdbc[8]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 15:59:44.322007+05:30 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 15:59:44.346502+05:30 jdbc[8]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 15:59:49.315241+05:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 15:59:49.325634+05:30 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 15:59:54.299084+05:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 15:59:54.323796+05:30 jdbc[8]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 15:59:59.324807+05:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 15:59:59.343596+05:30 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:00:04.302101+05:30 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:00:04.321102+05:30 jdbc[7]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:00:09.358700+05:30 jdbc[7]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:00:09.387835+05:30 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:00:14.307774+05:30 jdbc[7]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:00:14.325559+05:30 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:00:19.327380+05:30 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:00:19.351168+05:30 jdbc[7]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:00:24.302973+05:30 jdbc[8]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:00:24.319084+05:30 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:00:29.326414+05:30 jdbc[7]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:00:29.333191+05:30 jdbc[8]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:00:34.299634+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:00:34.330540+05:30 jdbc[7]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:00:39.307445+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:00:39.329020+05:30 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:00:44.313241+05:30 jdbc[8]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:00:44.318239+05:30 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:00:49.307722+05:30 jdbc[7]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:00:49.325466+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:00:54.309873+05:30 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:00:54.310879+05:30 jdbc[8]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:00:59.316597+05:30 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:00:59.335609+05:30 jdbc[8]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:01:04.303344+05:30 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:01:04.305867+05:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:01:09.314060+05:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:01:09.329574+05:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:01:14.310518+05:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:01:14.328979+05:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:01:19.329374+05:30 jdbc[8]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:01:19.351679+05:30 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:01:24.309902+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:01:24.329057+05:30 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:01:29.319052+05:30 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:01:29.337420+05:30 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:01:34.293031+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:01:34.319476+05:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:01:39.311560+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:01:39.327450+05:30 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:01:44.312735+05:30 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:01:44.313739+05:30 jdbc[7]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:01:49.316471+05:30 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:01:49.334613+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:01:54.317799+05:30 jdbc[8]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:01:54.327051+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:01:59.321201+05:30 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:01:59.337655+05:30 jdbc[8]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:02:04.302082+05:30 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:02:04.305096+05:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:02:09.302564+05:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:02:09.310685+05:30 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:02:14.300131+05:30 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:02:14.301140+05:30 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:02:19.326639+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:02:19.355003+05:30 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:02:24.310923+05:30 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:02:24.326103+05:30 jdbc[7]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:02:29.306574+05:30 jdbc[8]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:02:29.326712+05:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:02:34.299612+05:30 jdbc[8]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:02:34.323050+05:30 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:02:39.320519+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:02:39.329823+05:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:02:44.305745+05:30 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:02:44.318075+05:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:02:49.324796+05:30 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:02:49.345536+05:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:02:54.334660+05:30 jdbc[8]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:02:54.351826+05:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:03:00.047942+05:30 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:03:00.083841+05:30 jdbc[7]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:03:04.827978+05:30 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:03:04.937046+05:30 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:03:09.823648+05:30 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:03:09.852481+05:30 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:07:06.327372+05:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:07:06.589396+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:07:09.314936+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:07:09.363925+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:07:14.847024+05:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:07:15.047118+05:30 jdbc[8]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:07:19.805229+05:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:07:19.870229+05:30 jdbc[7]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:07:24.853947+05:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:07:24.915465+05:30 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:07:29.798144+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:07:29.889158+05:30 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:07:34.818500+05:30 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:07:35.036097+05:30 jdbc[7]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:07:39.819836+05:30 jdbc[8]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:07:39.920362+05:30 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:07:44.835476+05:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:07:44.933961+05:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:07:49.866828+05:30 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:07:50.083718+05:30 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:07:54.813685+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:07:54.850796+05:30 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:07:55.646166+05:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-224]
+2026-04-26 16:07:59.821398+05:30 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:07:59.854027+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:08:04.789307+05:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:08:04.880320+05:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:08:09.813130+05:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:08:09.835062+05:30 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:08:35.810123+05:30 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:08:36.206603+05:30 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:08:39.306811+05:30 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:08:39.459698+05:30 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:08:45.475554+05:30 jdbc[7]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:08:45.535018+05:30 jdbc[8]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:08:49.848983+05:30 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:08:50.477495+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:08:54.876552+05:30 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:08:55.235075+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:09:00.154820+05:30 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:09:00.426444+05:30 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:09:02.420653+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:09:02.463856+05:30 jdbc[8]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:09:04.802239+05:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:09:05.237034+05:30 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:09:07.402486+05:30 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:09:07.437710+05:30 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:09:09.804776+05:30 jdbc[7]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:09:09.906327+05:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:09:12.399769+05:30 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:09:12.400777+05:30 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:09:14.875332+05:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:09:14.933173+05:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:09:17.362773+05:30 jdbc[7]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:09:17.393153+05:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:09:19.861912+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:09:20.148950+05:30 jdbc[7]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:09:22.436827+05:30 jdbc[7]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:09:22.456685+05:30 jdbc[9]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:09:24.858986+05:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:09:25.065466+05:30 jdbc[7]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:09:27.882054+05:30 jdbc[7]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:09:28.837102+05:30 jdbc[7]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:09:29.946376+05:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:09:30.636218+05:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:09:32.552595+05:30 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:09:32.604503+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:09:37.862263+05:30 jdbc[15]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:09:38.027312+05:30 jdbc[15]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:09:43.825940+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:09:46.893033+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:09:47.797367+05:30 jdbc[16]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:09:48.245487+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:09:52.920564+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:09:53.270421+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:09:57.377364+05:30 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:09:57.400607+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:10:02.736415+05:30 jdbc[16]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:10:02.765530+05:30 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:10:07.993090+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:10:11.294282+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:10:12.390270+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:10:12.478258+05:30 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:10:17.871165+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:10:18.033076+05:30 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:10:22.895442+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:10:23.447536+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:10:27.831510+05:30 jdbc[15]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:10:28.941358+05:30 jdbc[15]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:10:32.924892+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:10:33.107909+05:30 jdbc[15]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:10:37.815804+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:10:37.987036+05:30 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:10:42.864029+05:30 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:10:42.890112+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:10:47.842059+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:10:48.028647+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:10:52.815062+05:30 jdbc[15]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:10:52.829585+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:10:57.899909+05:30 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:10:57.942621+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:11:02.863000+05:30 jdbc[15]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:11:03.128770+05:30 jdbc[16]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:11:07.839554+05:30 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:11:07.967876+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:11:12.797245+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:11:12.989708+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:11:35.895120+05:30 jdbc[15]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:11:36.619515+05:30 jdbc[15]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:12:35.953725+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:12:36.213529+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:17:33.668658+05:30 jdbc[15]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:17:33.690083+05:30 jdbc[15]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:17:37.387423+05:30 jdbc[15]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:17:37.423295+05:30 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:17:42.832264+05:30 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:17:43.889487+05:30 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:17:47.863382+05:30 jdbc[18]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:17:47.899462+05:30 jdbc[16]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:17:52.807981+05:30 jdbc[15]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:17:52.881796+05:30 jdbc[15]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:17:57.833334+05:30 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:17:58.005709+05:30 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:18:02.830059+05:30 jdbc[18]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:18:02.900959+05:30 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:18:07.808090+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:18:07.872308+05:30 jdbc[15]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:18:12.806058+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:18:12.851466+05:30 jdbc[15]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:18:17.814685+05:30 jdbc[16]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:18:17.950144+05:30 jdbc[16]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:18:22.819555+05:30 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:18:22.946146+05:30 jdbc[18]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:18:27.830716+05:30 jdbc[15]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:18:27.914918+05:30 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:18:32.811868+05:30 jdbc[17]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:18:32.847210+05:30 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:18:37.813343+05:30 jdbc[15]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:18:37.857081+05:30 jdbc[15]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:19:35.903998+05:30 jdbc[16]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:19:36.039516+05:30 jdbc[17]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:20:35.868854+05:30 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:20:35.939357+05:30 jdbc[18]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:21:35.833717+05:30 jdbc[18]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:21:35.887659+05:30 jdbc[15]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:22:35.861766+05:30 jdbc[18]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:22:35.903492+05:30 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
+2026-04-26 16:23:35.903996+05:30 jdbc[15]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MAINTENANCE" not found; SQL statement:
+select count(*) from maintenance m1_0 [42102-224]
+2026-04-26 16:23:35.970735+05:30 jdbc[18]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.[*]month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0"; expected "identifier"; SQL statement:
+select m1_0.id,m1_0.amount,m1_0.created_at,m1_0.due_date,m1_0.month,m1_0.paid_at,m1_0.status,m1_0.user_id,m1_0.year from maintenance m1_0 [42001-224]
