@@ -1,6 +1,8 @@
 package com.society.controller;
 
 import com.society.entity.Notice;
+import com.society.entity.User;
+import com.society.repository.UserRepository;
 import com.society.service.NoticeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +21,18 @@ public class NoticeController {
 
     @Autowired
     private NoticeService noticeService;
+
+    @Autowired
+    private UserRepository userRepository;
+
+    // Helper method to check if user is ACTIVE
+    private void checkUserActive(Long userId) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+        if (user.getStatus() != User.UserStatus.ACTIVE) {
+            throw new RuntimeException("Your account is not active. Please wait for admin approval.");
+        }
+    }
 
     // Create Notice
     @PostMapping
@@ -141,6 +155,9 @@ public class NoticeController {
             Long userId = null;
             if (authentication != null && authentication.isAuthenticated()) {
                 userId = getUserIdFromAuthentication(authentication);
+                if (userId != null) {
+                    checkUserActive(userId);
+                }
             }
             List<Map<String, Object>> notices = noticeService.getAllNoticesWithReadStatus(userId);
             return ResponseEntity.ok(notices);

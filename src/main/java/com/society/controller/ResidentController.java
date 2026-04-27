@@ -2,6 +2,7 @@ package com.society.controller;
 
 import com.society.dto.ComplaintRequest;
 import com.society.entity.*;
+import com.society.repository.UserRepository;
 import com.society.service.ResidentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,15 +19,29 @@ public class ResidentController {
     @Autowired
     private ResidentService residentService;
 
+    @Autowired
+    private UserRepository userRepository;
+
+    // Helper method to check if user is ACTIVE
+    private void checkUserActive(Long userId) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+        if (user.getStatus() != User.UserStatus.ACTIVE) {
+            throw new RuntimeException("Your account is not active. Please wait for admin approval.");
+        }
+    }
+
     // Maintenance
     @GetMapping("/maintenance")
     public ResponseEntity<List<Maintenance>> getMyMaintenance(@RequestParam Long userId) {
+        checkUserActive(userId);
         List<Maintenance> bills = residentService.getMyMaintenance(userId);
         return ResponseEntity.ok(bills);
     }
 
     @PostMapping("/maintenance/{id}/pay")
-    public ResponseEntity<Maintenance> payMaintenance(@PathVariable Long id) {
+    public ResponseEntity<Maintenance> payMaintenance(@PathVariable Long id, @RequestParam Long userId) {
+        checkUserActive(userId);
         Maintenance maintenance = residentService.payMaintenance(id);
         return ResponseEntity.ok(maintenance);
     }
@@ -34,6 +49,7 @@ public class ResidentController {
     // Complaints
     @PostMapping("/complaints")
     public ResponseEntity<Complaint> createComplaint(@RequestBody ComplaintRequest complaintRequest, @RequestParam Long userId) {
+        checkUserActive(userId);
         Complaint complaint = residentService.createComplaint(
                 complaintRequest.getTitle(),
                 complaintRequest.getDescription(),
@@ -45,25 +61,29 @@ public class ResidentController {
 
     @GetMapping("/complaints")
     public ResponseEntity<List<Complaint>> getMyComplaints(@RequestParam Long userId) {
+        checkUserActive(userId);
         List<Complaint> complaints = residentService.getMyComplaints(userId);
         return ResponseEntity.ok(complaints);
     }
 
     // Visitors
     @PostMapping("/visitors/{id}/approve")
-    public ResponseEntity<Void> approveVisitor(@PathVariable Long id) {
+    public ResponseEntity<Void> approveVisitor(@PathVariable Long id, @RequestParam Long userId) {
+        checkUserActive(userId);
         residentService.approveVisitor(id);
         return ResponseEntity.ok().build();
     }
 
     @PostMapping("/visitors/{id}/reject")
-    public ResponseEntity<Void> rejectVisitor(@PathVariable Long id) {
+    public ResponseEntity<Void> rejectVisitor(@PathVariable Long id, @RequestParam Long userId) {
+        checkUserActive(userId);
         residentService.rejectVisitor(id);
         return ResponseEntity.ok().build();
     }
 
     @GetMapping("/visitors")
-    public ResponseEntity<List<Visitor>> getMyVisitors(@RequestParam String flatNumber) {
+    public ResponseEntity<List<Visitor>> getMyVisitors(@RequestParam String flatNumber, @RequestParam Long userId) {
+        checkUserActive(userId);
         List<Visitor> visitors = residentService.getMyVisitors(flatNumber);
         return ResponseEntity.ok(visitors);
     }
@@ -71,18 +91,21 @@ public class ResidentController {
     // Notifications
     @GetMapping("/notifications")
     public ResponseEntity<List<Notification>> getMyNotifications(@RequestParam Long userId) {
+        checkUserActive(userId);
         List<Notification> notifications = residentService.getMyNotifications(userId);
         return ResponseEntity.ok(notifications);
     }
 
     @PostMapping("/notifications/{id}/read")
-    public ResponseEntity<Void> markNotificationAsRead(@PathVariable Long id) {
+    public ResponseEntity<Void> markNotificationAsRead(@PathVariable Long id, @RequestParam Long userId) {
+        checkUserActive(userId);
         residentService.markNotificationAsRead(id);
         return ResponseEntity.ok().build();
     }
 
     @GetMapping("/notifications/unread-count")
     public ResponseEntity<Long> getUnreadNotificationCount(@RequestParam Long userId) {
+        checkUserActive(userId);
         Long count = residentService.getUnreadNotificationCount(userId);
         return ResponseEntity.ok(count);
     }

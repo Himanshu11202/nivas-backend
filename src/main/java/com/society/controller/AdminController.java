@@ -106,6 +106,24 @@ public class AdminController {
         return ResponseEntity.ok(residents);
     }
 
+    // Delete Resident
+    @DeleteMapping("/residents/{id}")
+    public ResponseEntity<?> deleteResident(@PathVariable Long id) {
+        try {
+            User resident = userRepository.findById(id)
+                    .orElseThrow(() -> new RuntimeException("Resident not found"));
+            
+            if (resident.getRole() != User.Role.RESIDENT) {
+                return ResponseEntity.badRequest().body(Map.of("error", "User is not a resident"));
+            }
+            
+            userRepository.deleteById(id);
+            return ResponseEntity.ok(Map.of("message", "Resident deleted successfully"));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(Map.of("error", "Error deleting resident: " + e.getMessage()));
+        }
+    }
+
     // Get All Workers
     @GetMapping("/workers")
     public ResponseEntity<List<Worker>> getAllWorkers() {
