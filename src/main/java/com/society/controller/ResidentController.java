@@ -22,26 +22,15 @@ public class ResidentController {
     @Autowired
     private UserRepository userRepository;
 
-    // Helper method to check if user is ACTIVE
-    private void checkUserActive(Long userId) {
-        User user = userRepository.findById(userId)
-                .orElseThrow(() -> new RuntimeException("User not found"));
-        if (user.getStatus() != User.UserStatus.ACTIVE) {
-            throw new RuntimeException("Your account is not active. Please wait for admin approval.");
-        }
-    }
-
     // Maintenance
     @GetMapping("/maintenance")
     public ResponseEntity<List<Maintenance>> getMyMaintenance(@RequestParam Long userId) {
-        checkUserActive(userId);
         List<Maintenance> bills = residentService.getMyMaintenance(userId);
         return ResponseEntity.ok(bills);
     }
 
     @PostMapping("/maintenance/{id}/pay")
-    public ResponseEntity<Maintenance> payMaintenance(@PathVariable Long id, @RequestParam Long userId) {
-        checkUserActive(userId);
+    public ResponseEntity<Maintenance> payMaintenance(@PathVariable Long id) {
         Maintenance maintenance = residentService.payMaintenance(id);
         return ResponseEntity.ok(maintenance);
     }
@@ -49,7 +38,6 @@ public class ResidentController {
     // Complaints
     @PostMapping("/complaints")
     public ResponseEntity<Complaint> createComplaint(@RequestBody ComplaintRequest complaintRequest, @RequestParam Long userId) {
-        checkUserActive(userId);
         Complaint complaint = residentService.createComplaint(
                 complaintRequest.getTitle(),
                 complaintRequest.getDescription(),
@@ -61,29 +49,25 @@ public class ResidentController {
 
     @GetMapping("/complaints")
     public ResponseEntity<List<Complaint>> getMyComplaints(@RequestParam Long userId) {
-        checkUserActive(userId);
         List<Complaint> complaints = residentService.getMyComplaints(userId);
         return ResponseEntity.ok(complaints);
     }
 
     // Visitors
     @PostMapping("/visitors/{id}/approve")
-    public ResponseEntity<Void> approveVisitor(@PathVariable Long id, @RequestParam Long userId) {
-        checkUserActive(userId);
+    public ResponseEntity<Void> approveVisitor(@PathVariable Long id) {
         residentService.approveVisitor(id);
         return ResponseEntity.ok().build();
     }
 
     @PostMapping("/visitors/{id}/reject")
-    public ResponseEntity<Void> rejectVisitor(@PathVariable Long id, @RequestParam Long userId) {
-        checkUserActive(userId);
+    public ResponseEntity<Void> rejectVisitor(@PathVariable Long id) {
         residentService.rejectVisitor(id);
         return ResponseEntity.ok().build();
     }
 
     @GetMapping("/visitors")
-    public ResponseEntity<List<Visitor>> getMyVisitors(@RequestParam String flatNumber, @RequestParam Long userId) {
-        checkUserActive(userId);
+    public ResponseEntity<List<Visitor>> getMyVisitors(@RequestParam String flatNumber) {
         List<Visitor> visitors = residentService.getMyVisitors(flatNumber);
         return ResponseEntity.ok(visitors);
     }
@@ -91,21 +75,18 @@ public class ResidentController {
     // Notifications
     @GetMapping("/notifications")
     public ResponseEntity<List<Notification>> getMyNotifications(@RequestParam Long userId) {
-        checkUserActive(userId);
         List<Notification> notifications = residentService.getMyNotifications(userId);
         return ResponseEntity.ok(notifications);
     }
 
     @PostMapping("/notifications/{id}/read")
-    public ResponseEntity<Void> markNotificationAsRead(@PathVariable Long id, @RequestParam Long userId) {
-        checkUserActive(userId);
+    public ResponseEntity<Void> markNotificationAsRead(@PathVariable Long id) {
         residentService.markNotificationAsRead(id);
         return ResponseEntity.ok().build();
     }
 
     @GetMapping("/notifications/unread-count")
     public ResponseEntity<Long> getUnreadNotificationCount(@RequestParam Long userId) {
-        checkUserActive(userId);
         Long count = residentService.getUnreadNotificationCount(userId);
         return ResponseEntity.ok(count);
     }
