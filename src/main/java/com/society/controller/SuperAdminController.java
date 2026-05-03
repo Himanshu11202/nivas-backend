@@ -279,6 +279,14 @@ public class SuperAdminController {
         return ResponseEntity.ok(societies);
     }
 
+    // Get Society by ID
+    @GetMapping("/societies/id/{id}")
+    public ResponseEntity<?> getSocietyById(@PathVariable Long id) {
+        return societyRepository.findById(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
     // Get Society by Code
     @GetMapping("/societies/{code}")
     public ResponseEntity<?> getSocietyByCode(@PathVariable String code) {
