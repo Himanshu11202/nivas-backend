@@ -301,4 +301,115 @@ public class SuperAdminController {
         List<User> admins = userRepository.findByRole(User.Role.SOCIETY_ADMIN);
         return ResponseEntity.ok(admins);
     }
+
+    // ============ MAINTENANCE COLLECTION ENDPOINTS ============
+
+    // Record maintenance payment from society
+    @PostMapping("/societies/{id}/payment")
+    public ResponseEntity<?> recordMaintenancePayment(@PathVariable Long id, @RequestBody Map<String, Object> request) {
+        try {
+            Optional<Society> societyOpt = societyRepository.findById(id);
+            if (societyOpt.isEmpty()) {
+                return ResponseEntity.notFound().build();
+            }
+
+            Society society = societyOpt.get();
+            Double amount = ((Number) request.get("amount")).doubleValue();
+
+            // Update revenue and pending payments
+            society.setTotalRevenue(society.getTotalRevenue() + amount);
+            society.setPendingPayments(Math.max(0, society.getPendingPayments() - amount));
+            society.setLastPaymentDate(java.time.LocalDateTime.now());
+
+            // Extend subscription by 30 days
+            society.setSubscriptionExpiryDate(java.time.LocalDateTime.now().plusDays(30));
+            society.setSubscriptionStatus(Society.SubscriptionStatus.ACTIVE);
+
+            societyRepository.save(society);
+
+            return ResponseEntity.ok(Map.of(
+                "message", "Payment recorded successfully",
+                "society", society
+            ));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(Map.of("error", e.getMessage()));
+        }
+    }
+
+    // Set maintenance amount for a society
+    @PutMapping("/societies/{id}/maintenance-amount")
+    public ResponseEntity<?> setMaintenanceAmount(@PathVariable Long id, @RequestBody Map<String, Object> request) {
+        try {
+            Optional<Society> societyOpt = societyRepository.findById(id);
+            if (societyOpt.isEmpty()) {
+                return ResponseEntity.notFound().build();
+            }
+
+            Society society = societyOpt.get();
+            Double amount = ((Number) request.get("amount")).doubleValue();
+            society.setMaintenanceAmount(amount);
+
+            societyRepository.save(society);
+
+            return ResponseEntity.ok(Map.of(
+                "message", "Maintenance amount updated successfully",
+                "society", society
+            ));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(Map.of("error", e.getMessage()));
+        }
+    }
+
+    // Get maintenance collection stats
+    @GetMapping("/maintenance-stats")
+    public ResponseEntity<?> getMaintenanceStats() {
+        try {
+            List<Society> societies = societyRepository.findAll();
+            Double totalRevenue = societies.stream().mapToDouble(Society::getTotalRevenue).sum();
+            Double totalPending = societies.stream().mapToDouble(Society::getPendingPayments).sum();
+            int activeSocieties = (int) societies.stream().filter(s -> s.getSubscriptionStatus() == Society.SubscriptionStatus.ACTIVE).count();
+            int blockedSocieties = (int) societies.stream().filter(s -> s.getSubscriptionStatus() == Society.SubscriptionStatus.BLOCKED).count();
+
+            return ResponseEntity.ok(Map.of(
+                "totalRevenue", totalRevenue,
+                "totalPendingPayments", totalPending,
+                "activeSocieties", activeSocieties,
+                "blockedSocieties", blockedSocieties,
+                "totalSocieties", societies.size()
+            ));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(Map.of("error", e.getMessage()));
+        }
+    }
+
+    // Block/Unblock society
+    @PutMapping("/societies/{id}/status")
+    public ResponseEntity<?> updateSocietyStatus(@PathVariable Long id, @RequestBody Map<String, String> request) {
+        try {
+            Optional<Society> societyOpt = societyRepository.findById(id);
+            if (societyOpt.isEmpty()) {
+                return ResponseEntity.notFound().build();
+            }
+
+            Society society = societyOpt.get();
+            String status = request.get("status");
+
+            if ("ACTIVE".equals(status)) {
+                society.setSubscriptionStatus(Society.SubscriptionStatus.ACTIVE);
+            } else if ("BLOCKED".equals(status)) {
+                society.setSubscriptionStatus(Society.SubscriptionStatus.BLOCKED);
+            } else if ("EXPIRED".equals(status)) {
+                society.setSubscriptionStatus(Society.SubscriptionStatus.EXPIRED);
+            }
+
+            societyRepository.save(society);
+
+            return ResponseEntity.ok(Map.of(
+                "message", "Society status updated successfully",
+                "society", society
+            ));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(Map.of("error", e.getMessage()));
+        }
+    }
 }

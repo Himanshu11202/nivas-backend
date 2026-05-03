@@ -44,6 +44,18 @@ public class Society {
     @Column(name = "total_residents")
     private Integer totalResidents = 0;
 
+    @Column(name = "total_revenue")
+    private Double totalRevenue = 0.0;
+
+    @Column(name = "pending_payments")
+    private Double pendingPayments = 0.0;
+
+    @Column(name = "maintenance_amount")
+    private Double maintenanceAmount = 1000.0; // Default monthly maintenance amount
+
+    @Column(name = "maintenance_due_date")
+    private LocalDateTime maintenanceDueDate;
+
     @PrePersist
     protected void onCreate() {
         createdAt = LocalDateTime.now();
@@ -141,5 +153,37 @@ public class Society {
 
     public void setTotalResidents(Integer totalResidents) {
         this.totalResidents = totalResidents;
+    }
+
+    public Double getTotalRevenue() {
+        return totalRevenue;
+    }
+
+    public void setTotalRevenue(Double totalRevenue) {
+        this.totalRevenue = totalRevenue;
+    }
+
+    public Double getPendingPayments() {
+        return pendingPayments;
+    }
+
+    public void setPendingPayments(Double pendingPayments) {
+        this.pendingPayments = pendingPayments;
+    }
+
+    public Double getMaintenanceAmount() {
+        return maintenanceAmount;
+    }
+
+    public void setMaintenanceAmount(Double maintenanceAmount) {
+        this.maintenanceAmount = maintenanceAmount;
+    }
+
+    public LocalDateTime getMaintenanceDueDate() {
+        return maintenanceDueDate;
+    }
+
+    public void setMaintenanceDueDate(LocalDateTime maintenanceDueDate) {
+        this.maintenanceDueDate = maintenanceDueDate;
     }
 }
