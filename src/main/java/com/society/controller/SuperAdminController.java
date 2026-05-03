@@ -223,6 +223,12 @@ public class SuperAdminController {
             String name = request.get("name");
             String location = request.get("location");
 
+            // Admin details
+            String adminName = request.get("adminName");
+            String adminEmail = request.get("adminEmail");
+            String adminPassword = request.get("adminPassword");
+            String adminPhone = request.get("adminPhone");
+
             if (name == null || name.trim().isEmpty()) {
                 return ResponseEntity.badRequest().body(Map.of("error", "Society name is required"));
             }
@@ -236,10 +242,30 @@ public class SuperAdminController {
             Society society = new Society(societyCode, name, location);
             Society savedSociety = societyRepository.save(society);
 
+            // Create Society Admin if admin details provided
+            User admin = null;
+            if (adminName != null && adminEmail != null && adminPassword != null) {
+                // Check if email already exists
+                if (userRepository.existsByEmail(adminEmail)) {
+                    return ResponseEntity.badRequest().body(Map.of("error", "Admin email already exists"));
+                }
+
+                admin = new User();
+                admin.setName(adminName);
+                admin.setEmail(adminEmail);
+                admin.setPassword(passwordEncoder.encode(adminPassword));
+                admin.setRole(User.Role.SOCIETY_ADMIN);
+                admin.setSocietyId(savedSociety.getId());
+                admin.setPhoneNumber(adminPhone);
+                admin.setStatus(User.UserStatus.ACTIVE);
+                userRepository.save(admin);
+            }
+
             return ResponseEntity.ok(Map.of(
                 "message", "Society created successfully",
                 "societyCode", savedSociety.getSocietyCode(),
-                "society", savedSociety
+                "society", savedSociety,
+                "admin", admin
             ));
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(Map.of("error", "Error creating society: " + e.getMessage()));

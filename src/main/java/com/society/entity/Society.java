@@ -7,6 +7,12 @@ import java.time.LocalDateTime;
 @Table(name = "societies")
 public class Society {
 
+    public enum SubscriptionStatus {
+        ACTIVE,
+        EXPIRED,
+        BLOCKED
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -23,9 +29,28 @@ public class Society {
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
+    @Column(name = "subscription_status")
+    private SubscriptionStatus subscriptionStatus = SubscriptionStatus.ACTIVE;
+
+    @Column(name = "last_payment_date")
+    private LocalDateTime lastPaymentDate;
+
+    @Column(name = "subscription_expiry_date")
+    private LocalDateTime subscriptionExpiryDate;
+
+    @Column(name = "total_flats")
+    private Integer totalFlats = 0;
+
+    @Column(name = "total_residents")
+    private Integer totalResidents = 0;
+
     @PrePersist
     protected void onCreate() {
         createdAt = LocalDateTime.now();
+        // Set default subscription expiry to 30 days from now
+        if (subscriptionExpiryDate == null) {
+            subscriptionExpiryDate = LocalDateTime.now().plusDays(30);
+        }
     }
 
     // Constructors
@@ -76,5 +101,45 @@ public class Society {
 
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public SubscriptionStatus getSubscriptionStatus() {
+        return subscriptionStatus;
+    }
+
+    public void setSubscriptionStatus(SubscriptionStatus subscriptionStatus) {
+        this.subscriptionStatus = subscriptionStatus;
+    }
+
+    public LocalDateTime getLastPaymentDate() {
+        return lastPaymentDate;
+    }
+
+    public void setLastPaymentDate(LocalDateTime lastPaymentDate) {
+        this.lastPaymentDate = lastPaymentDate;
+    }
+
+    public LocalDateTime getSubscriptionExpiryDate() {
+        return subscriptionExpiryDate;
+    }
+
+    public void setSubscriptionExpiryDate(LocalDateTime subscriptionExpiryDate) {
+        this.subscriptionExpiryDate = subscriptionExpiryDate;
+    }
+
+    public Integer getTotalFlats() {
+        return totalFlats;
+    }
+
+    public void setTotalFlats(Integer totalFlats) {
+        this.totalFlats = totalFlats;
+    }
+
+    public Integer getTotalResidents() {
+        return totalResidents;
+    }
+
+    public void setTotalResidents(Integer totalResidents) {
+        this.totalResidents = totalResidents;
     }
 }
