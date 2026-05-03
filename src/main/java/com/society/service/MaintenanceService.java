@@ -23,10 +23,32 @@ public class MaintenanceService {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private SocietyRepository societyRepository;
+
     // Maintenance Management
     public Maintenance createMaintenance(Maintenance maintenance) {
         maintenance.setCreatedAt(LocalDateTime.now());
         maintenance.setStatus(Maintenance.PaymentStatus.PENDING);
+        
+        // Populate billing fields from user
+        User user = userRepository.findById(maintenance.getUserId())
+                .orElseThrow(() -> new RuntimeException("User not found"));
+        
+        maintenance.setFlatNumber(user.getFlatNumber());
+        maintenance.setResidentName(user.getName());
+        maintenance.setSocietyId(user.getSocietyId());
+        
+        // Populate society name
+        if (user.getSocietyId() != null) {
+            societyRepository.findById(user.getSocietyId()).ifPresent(society -> {
+                maintenance.setSocietyName(society.getName());
+            });
+        }
+        
+        // Generate invoice number
+        String invoiceNumber = "INV-" + System.currentTimeMillis();
+        maintenance.setInvoiceNumber(invoiceNumber);
         
         Maintenance savedMaintenance = maintenanceRepository.save(maintenance);
         
@@ -125,6 +147,22 @@ public class MaintenanceService {
                 maintenance.setDueDate(LocalDate.of(year, month, 1).plusMonths(1));
                 maintenance.setMonth(month);
                 maintenance.setYear(year);
+                
+                // Populate billing fields
+                maintenance.setFlatNumber(resident.getFlatNumber());
+                maintenance.setResidentName(resident.getName());
+                maintenance.setSocietyId(resident.getSocietyId());
+                
+                // Populate society name
+                if (resident.getSocietyId() != null) {
+                    societyRepository.findById(resident.getSocietyId()).ifPresent(society -> {
+                        maintenance.setSocietyName(society.getName());
+                    });
+                }
+                
+                // Generate invoice number
+                String invoiceNumber = "INV-" + System.currentTimeMillis();
+                maintenance.setInvoiceNumber(invoiceNumber);
                 
                 maintenanceRepository.save(maintenance);
                 

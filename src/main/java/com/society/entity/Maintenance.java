@@ -41,6 +41,21 @@ public class Maintenance {
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 
+    @Column(name = "society_id")
+    private Long societyId;
+
+    @Column(name = "flat_number")
+    private String flatNumber;
+
+    @Column(name = "resident_name")
+    private String residentName;
+
+    @Column(name = "invoice_number")
+    private String invoiceNumber;
+
+    @Column(name = "society_name")
+    private String societyName;
+
     public enum PaymentStatus {
         PENDING, PAID, OVERDUE
     }
@@ -77,4 +92,19 @@ public class Maintenance {
 
     public LocalDateTime getCreatedAt() { return createdAt; }
     public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
+
+    public Long getSocietyId() { return societyId; }
+    public void setSocietyId(Long societyId) { this.societyId = societyId; }
+
+    public String getFlatNumber() { return flatNumber; }
+    public void setFlatNumber(String flatNumber) { this.flatNumber = flatNumber; }
+
+    public String getResidentName() { return residentName; }
+    public void setResidentName(String residentName) { this.residentName = residentName; }
+
+    public String getInvoiceNumber() { return invoiceNumber; }
+    public void setInvoiceNumber(String invoiceNumber) { this.invoiceNumber = invoiceNumber; }
+
+    public String getSocietyName() { return societyName; }
+    public void setSocietyName(String societyName) { this.societyName = societyName; }
 }
