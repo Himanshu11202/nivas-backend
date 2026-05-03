@@ -44,6 +44,9 @@ public class User {
     @Column(name = "role")
     private Role role;
 
+    @Column(name = "society_id")
+    private Long societyId;
+
     @Column(name = "flat_number", unique = true)
     private String flatNumber;
 
@@ -55,7 +58,7 @@ public class User {
     private LocalDateTime createdAt;
 
     public enum Role {
-        SUPER_ADMIN, ADMIN, RESIDENT, GUARD, WORKER
+        SUPER_ADMIN, ADMIN, SOCIETY_ADMIN, RESIDENT, GUARD, WORKER
     }
 
     public enum UserStatus {
@@ -89,6 +92,9 @@ public class User {
 
     public Role getRole() { return role; }
     public void setRole(Role role) { this.role = role; }
+
+    public Long getSocietyId() { return societyId; }
+    public void setSocietyId(Long societyId) { this.societyId = societyId; }
 
     public String getFlatNumber() { return flatNumber; }
     public void setFlatNumber(String flatNumber) { this.flatNumber = flatNumber; }

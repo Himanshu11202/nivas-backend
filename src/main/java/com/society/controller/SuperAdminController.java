@@ -1,6 +1,8 @@
 package com.society.controller;
 
+import com.society.entity.Society;
 import com.society.entity.User;
+import com.society.repository.SocietyRepository;
 import com.society.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Random;
 
 @RestController
 @RequestMapping("/api/super-admin")
@@ -17,6 +20,9 @@ public class SuperAdminController {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private SocietyRepository societyRepository;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -206,5 +212,59 @@ public class SuperAdminController {
                 "exception", e.getClass().getName()
             ));
         }
+    }
+
+    // ============ SOCIETY MANAGEMENT ENDPOINTS ============
+
+    // Create Society
+    @PostMapping("/societies")
+    public ResponseEntity<?> createSociety(@RequestBody Map<String, String> request) {
+        try {
+            String name = request.get("name");
+            String location = request.get("location");
+
+            if (name == null || name.trim().isEmpty()) {
+                return ResponseEntity.badRequest().body(Map.of("error", "Society name is required"));
+            }
+
+            // Generate unique society code
+            String societyCode;
+            do {
+                societyCode = "SOC" + (10000 + new Random().nextInt(90000));
+            } while (societyRepository.existsBySocietyCode(societyCode));
+
+            Society society = new Society(societyCode, name, location);
+            Society savedSociety = societyRepository.save(society);
+
+            return ResponseEntity.ok(Map.of(
+                "message", "Society created successfully",
+                "societyCode", savedSociety.getSocietyCode(),
+                "society", savedSociety
+            ));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(Map.of("error", "Error creating society: " + e.getMessage()));
+        }
+    }
+
+    // Get All Societies
+    @GetMapping("/societies")
+    public ResponseEntity<List<Society>> getAllSocieties() {
+        List<Society> societies = societyRepository.findAll();
+        return ResponseEntity.ok(societies);
+    }
+
+    // Get Society by Code
+    @GetMapping("/societies/{code}")
+    public ResponseEntity<?> getSocietyByCode(@PathVariable String code) {
+        return societyRepository.findBySocietyCode(code)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
+    // Get All Society Admins
+    @GetMapping("/admins")
+    public ResponseEntity<List<User>> getAllSocietyAdmins() {
+        List<User> admins = userRepository.findByRole(User.Role.SOCIETY_ADMIN);
+        return ResponseEntity.ok(admins);
     }
 }

@@ -20,6 +20,8 @@ public class RegisterRequest {
     @NotBlank(message = "Role is required")
     private String role;
 
+    private String societyCode;
+
     private String flatNumber;
 
     @Size(max = 15, message = "Phone number must be less than 15 characters")
@@ -37,6 +39,9 @@ public class RegisterRequest {
 
     public String getRole() { return role; }
     public void setRole(String role) { this.role = role; }
+
+    public String getSocietyCode() { return societyCode; }
+    public void setSocietyCode(String societyCode) { this.societyCode = societyCode; }
 
     public String getFlatNumber() { return flatNumber; }
     public void setFlatNumber(String flatNumber) { this.flatNumber = flatNumber; }

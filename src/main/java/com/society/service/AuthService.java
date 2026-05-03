@@ -4,7 +4,9 @@ import com.society.dto.AuthResponse;
 import com.society.dto.LoginRequest;
 import com.society.dto.RegisterRequest;
 import com.society.entity.Notification;
+import com.society.entity.Society;
 import com.society.entity.User;
+import com.society.repository.SocietyRepository;
 import com.society.repository.UserRepository;
 import com.society.security.JwtUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +27,9 @@ public class AuthService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private SocietyRepository societyRepository;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -77,15 +82,32 @@ public class AuthService {
             }
         }
 
+        User.Role role = User.Role.valueOf(registerRequest.getRole());
+        Long societyId = null;
+
+        // Validate society code for SOCIETY_ADMIN and RESIDENT roles
+        if (role == User.Role.SOCIETY_ADMIN || role == User.Role.RESIDENT) {
+            String societyCode = registerRequest.getSocietyCode();
+            if (societyCode == null || societyCode.trim().isEmpty()) {
+                throw new RuntimeException("Society code is required for this role");
+            }
+
+            Society society = societyRepository.findBySocietyCode(societyCode)
+                    .orElseThrow(() -> new RuntimeException("Invalid society code"));
+            societyId = society.getId();
+        }
+
         User user = new User();
         user.setName(registerRequest.getName());
         user.setEmail(registerRequest.getEmail());
         user.setPassword(passwordEncoder.encode(registerRequest.getPassword()));
-        user.setRole(User.Role.valueOf(registerRequest.getRole()));
+        user.setRole(role);
         user.setFlatNumber(registerRequest.getFlatNumber());
         user.setPhoneNumber(registerRequest.getPhoneNumber());
+        user.setSocietyId(societyId);
 
-        if (user.getRole() == User.Role.ADMIN || user.getRole() == User.Role.GUARD || user.getRole() == User.Role.SUPER_ADMIN) {
+        if (user.getRole() == User.Role.ADMIN || user.getRole() == User.Role.GUARD || 
+            user.getRole() == User.Role.SUPER_ADMIN || user.getRole() == User.Role.SOCIETY_ADMIN) {
             user.setStatus(User.UserStatus.ACTIVE);
         } else {
             user.setStatus(User.UserStatus.PENDING);
@@ -93,10 +115,13 @@ public class AuthService {
 
         User savedUser = userRepository.save(user);
 
-        // Send notification to all admins if user status is PENDING
-        if (savedUser.getStatus() == User.UserStatus.PENDING) {
-            List<User> admins = userRepository.findByRole(User.Role.ADMIN);
-            for (User admin : admins) {
+        // Send notification to society admins if user status is PENDING
+        if (savedUser.getStatus() == User.UserStatus.PENDING && savedUser.getSocietyId() != null) {
+            List<User> societyAdmins = userRepository.findByRole(User.Role.SOCIETY_ADMIN).stream()
+                    .filter(admin -> savedUser.getSocietyId().equals(admin.getSocietyId()))
+                    .toList();
+            
+            for (User admin : societyAdmins) {
                 Notification notification = new Notification();
                 notification.setUserId(admin.getId());
                 notification.setMessage("New resident registration pending approval: " + savedUser.getName() + " - " + savedUser.getEmail());
