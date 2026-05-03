@@ -33,11 +33,11 @@ public class ProductDataSeeder implements CommandLineRunner {
         User seller = residents.get(0);
         System.out.println("Seeding dummy products for user: " + seller.getName());
 
-        // Delete existing products to avoid duplicates
+        // Only seed products if none exist to avoid foreign key constraint issues
         long existingCount = productRepository.count();
         if (existingCount > 0) {
-            System.out.println("Deleting " + existingCount + " existing products...");
-            productRepository.deleteAll();
+            System.out.println("Products already exist (" + existingCount + "), skipping seeding...");
+            return;
         }
 
         // Create dummy products with Unsplash image URLs
