@@ -14,7 +14,6 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api/admin/complaints")
 @PreAuthorize("hasRole('ADMIN')")
-@CrossOrigin(origins = "http://localhost:3000")
 public class ComplaintController {
 
     @Autowired

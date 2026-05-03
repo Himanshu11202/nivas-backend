@@ -14,7 +14,6 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/admin/notices")
-@CrossOrigin(origins = "http://localhost:3000")
 public class NoticeController {
 
     @Autowired

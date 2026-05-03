@@ -13,7 +13,6 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/super-admin")
-@CrossOrigin(origins = "*")
 public class SuperAdminController {
 
     @Autowired

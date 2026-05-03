@@ -16,7 +16,6 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api/guard-attendance")
 @PreAuthorize("hasRole('GUARD') or hasRole('ADMIN')")
-@CrossOrigin(origins = "http://localhost:3000")
 public class GuardAttendanceController {
 
     @Autowired

@@ -13,7 +13,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/resident/visitors")
 @PreAuthorize("hasRole('RESIDENT')")
-@CrossOrigin(origins = "http://localhost:3000")
 public class ResidentVisitorController {
 
     @Autowired

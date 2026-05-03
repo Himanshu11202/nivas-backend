@@ -20,7 +20,6 @@ import java.util.ArrayList;
 @RestController
 @RequestMapping("/api/guard/worker-management")
 @PreAuthorize("hasRole('GUARD')")
-@CrossOrigin(origins = "http://localhost:3000")
 public class GuardWorkerController {
 
     @Autowired

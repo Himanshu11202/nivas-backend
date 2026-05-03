@@ -13,7 +13,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/guard/visitor-management")
 @PreAuthorize("hasRole('GUARD')")
-@CrossOrigin(origins = "http://localhost:3000")
 public class GuardVisitorController {
 
     @Autowired
