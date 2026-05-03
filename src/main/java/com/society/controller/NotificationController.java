@@ -19,7 +19,7 @@ public class NotificationController {
 
     // Get User Notifications
     @GetMapping("/user/{userId}")
-    @PreAuthorize("hasRole('RESIDENT') or hasRole('ADMIN') or hasRole('GUARD')")
+    @PreAuthorize("hasRole('RESIDENT') or hasRole('ADMIN') or hasRole('GUARD') or hasRole('SUPER_ADMIN') or hasRole('SOCIETY_ADMIN')")
     public ResponseEntity<List<Notification>> getUserNotifications(@PathVariable Long userId) {
         List<Notification> notifications = notificationService.getNotificationsByUserId(userId);
         return ResponseEntity.ok(notifications);
@@ -27,7 +27,7 @@ public class NotificationController {
 
     // Get Unread Count
     @GetMapping("/user/{userId}/unread-count")
-    @PreAuthorize("hasRole('RESIDENT') or hasRole('ADMIN') or hasRole('GUARD')")
+    @PreAuthorize("hasRole('RESIDENT') or hasRole('ADMIN') or hasRole('GUARD') or hasRole('SUPER_ADMIN') or hasRole('SOCIETY_ADMIN')")
     public ResponseEntity<Map<String, Long>> getUnreadCount(@PathVariable Long userId) {
         long unreadCount = notificationService.getUnreadCount(userId);
         return ResponseEntity.ok(Map.of("count", unreadCount));
@@ -35,7 +35,7 @@ public class NotificationController {
 
     // Mark as Read
     @PatchMapping("/{notificationId}/read")
-    @PreAuthorize("hasRole('RESIDENT') or hasRole('ADMIN') or hasRole('GUARD')")
+    @PreAuthorize("hasRole('RESIDENT') or hasRole('ADMIN') or hasRole('GUARD') or hasRole('SUPER_ADMIN') or hasRole('SOCIETY_ADMIN')")
     public ResponseEntity<Notification> markAsRead(@PathVariable Long notificationId) {
         try {
             Notification notification = notificationService.markAsRead(notificationId);
@@ -47,7 +47,7 @@ public class NotificationController {
 
     // Mark All as Read
     @PatchMapping("/user/{userId}/read-all")
-    @PreAuthorize("hasRole('RESIDENT') or hasRole('ADMIN') or hasRole('GUARD')")
+    @PreAuthorize("hasRole('RESIDENT') or hasRole('ADMIN') or hasRole('GUARD') or hasRole('SUPER_ADMIN') or hasRole('SOCIETY_ADMIN')")
     public ResponseEntity<Void> markAllAsRead(@PathVariable Long userId) {
         notificationService.markAllAsRead(userId);
         return ResponseEntity.ok().build();
@@ -55,7 +55,7 @@ public class NotificationController {
 
     // Delete Notification
     @DeleteMapping("/{notificationId}")
-    @PreAuthorize("hasRole('RESIDENT') or hasRole('ADMIN') or hasRole('GUARD')")
+    @PreAuthorize("hasRole('RESIDENT') or hasRole('ADMIN') or hasRole('GUARD') or hasRole('SUPER_ADMIN') or hasRole('SOCIETY_ADMIN')")
     public ResponseEntity<Void> deleteNotification(@PathVariable Long notificationId) {
         try {
             notificationService.deleteNotification(notificationId);
