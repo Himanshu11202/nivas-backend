@@ -361,9 +361,12 @@ public class SuperAdminController {
             Society society = societyOpt.get();
             Double amount = ((Number) request.get("amount")).doubleValue();
 
-            // Update revenue and pending payments
-            society.setTotalRevenue(society.getTotalRevenue() + amount);
-            society.setPendingPayments(Math.max(0, society.getPendingPayments() - amount));
+            // Update revenue and pending payments with null checks
+            Double currentRevenue = society.getTotalRevenue() != null ? society.getTotalRevenue() : 0.0;
+            Double currentPending = society.getPendingPayments() != null ? society.getPendingPayments() : 0.0;
+            
+            society.setTotalRevenue(currentRevenue + amount);
+            society.setPendingPayments(Math.max(0, currentPending - amount));
             society.setLastPaymentDate(java.time.LocalDateTime.now());
 
             // Extend subscription by 30 days
