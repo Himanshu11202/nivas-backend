@@ -295,6 +295,29 @@ public class SuperAdminController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    // Delete Society by ID
+    @DeleteMapping("/societies/{id}")
+    public ResponseEntity<?> deleteSociety(@PathVariable Long id) {
+        try {
+            if (!societyRepository.existsById(id)) {
+                return ResponseEntity.notFound().build();
+            }
+
+            // First, delete all users associated with this society
+            List<User> societyUsers = userRepository.findBySocietyId(id);
+            userRepository.deleteAll(societyUsers);
+
+            // Then delete the society
+            societyRepository.deleteById(id);
+
+            return ResponseEntity.ok(Map.of(
+                "message", "Society deleted successfully"
+            ));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(Map.of("error", e.getMessage()));
+        }
+    }
+
     // Get All Society Admins
     @GetMapping("/admins")
     public ResponseEntity<List<User>> getAllSocietyAdmins() {
