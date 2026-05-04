@@ -318,6 +318,17 @@ public class SuperAdminController {
         }
     }
 
+    // Get Society Members by Society ID
+    @GetMapping("/societies/{id}/members")
+    public ResponseEntity<?> getSocietyMembers(@PathVariable Long id) {
+        try {
+            List<User> members = userRepository.findBySocietyId(id);
+            return ResponseEntity.ok(members);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(Map.of("error", e.getMessage()));
+        }
+    }
+
     // Get All Society Admins
     @GetMapping("/admins")
     public ResponseEntity<List<User>> getAllSocietyAdmins() {
