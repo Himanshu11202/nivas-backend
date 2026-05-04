@@ -279,6 +279,17 @@ public class SuperAdminController {
         return ResponseEntity.ok(societies);
     }
 
+    // Search Societies by Name
+    @GetMapping("/societies/search")
+    public ResponseEntity<?> searchSocieties(@RequestParam String name) {
+        try {
+            List<Society> societies = societyRepository.findByNameContainingIgnoreCase(name);
+            return ResponseEntity.ok(societies);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(Map.of("error", e.getMessage()));
+        }
+    }
+
     // Get Society by ID
     @GetMapping("/societies/id/{id}")
     public ResponseEntity<?> getSocietyById(@PathVariable Long id) {
