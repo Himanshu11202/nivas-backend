@@ -15,4 +15,6 @@ public interface SocietyRepository extends JpaRepository<Society, Long> {
     List<Society> findByNameContainingIgnoreCase(String name);
 
     boolean existsBySocietyCode(String societyCode);
+
+    boolean existsByName(String name);
 }
