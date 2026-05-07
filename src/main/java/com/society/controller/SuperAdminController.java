@@ -233,6 +233,11 @@ public class SuperAdminController {
                 return ResponseEntity.badRequest().body(Map.of("error", "Society name is required"));
             }
 
+            // Check if society with same name already exists
+            if (societyRepository.existsByName(name)) {
+                return ResponseEntity.badRequest().body(Map.of("error", "Society with this name already exists"));
+            }
+
             // Generate unique society code
             String societyCode;
             do {
