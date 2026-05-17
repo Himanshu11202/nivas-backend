@@ -59,6 +59,20 @@ public class AuthService {
 
         String jwt = jwtUtils.generateToken(userDetails);
 
+        return buildAuthResponse(jwt, user);
+    }
+
+    private AuthResponse buildAuthResponse(String jwt, User user) {
+        String societyName = null;
+        String societyCode = null;
+        if (user.getSocietyId() != null) {
+            Society society = societyRepository.findById(user.getSocietyId()).orElse(null);
+            if (society != null) {
+                societyName = society.getName();
+                societyCode = society.getSocietyCode();
+            }
+        }
+
         return new AuthResponse(
                 jwt,
                 user.getId(),
@@ -67,7 +81,9 @@ public class AuthService {
                 user.getRole().name(),
                 user.getFlatNumber(),
                 user.getStatus().name(),
-                user.getSocietyId()
+                user.getSocietyId(),
+                societyName,
+                societyCode
         );
     }
 
@@ -133,16 +149,12 @@ public class AuthService {
 
         String jwt = jwtUtils.generateToken(savedUser.getEmail(), savedUser.getRole().name());
 
-        return new AuthResponse(
-                jwt,
-                savedUser.getId(),
-                savedUser.getEmail(),
-                savedUser.getName(),
-                savedUser.getRole().name(),
-                savedUser.getFlatNumber(),
-                savedUser.getStatus().name(),
-                savedUser.getSocietyId()
-        );
+        return buildAuthResponse(jwt, savedUser);
+    }
+
+    public AuthResponse getProfileByEmail(String email) {
+        User user = getCurrentUser(email);
+        return buildAuthResponse(null, user);
     }
 
     public User getCurrentUser(String email) {
