@@ -9,8 +9,9 @@ public class AuthResponse {
     private String role;
     String flatNumber;
     String status;
+    private Long societyId;
 
-    public AuthResponse(String token, Long id, String email, String name, String role, String flatNumber, String status) {
+    public AuthResponse(String token, Long id, String email, String name, String role, String flatNumber, String status, Long societyId) {
         this.token = token;
         this.id = id;
         this.email = email;
@@ -18,6 +19,7 @@ public class AuthResponse {
         this.role = role;
         this.flatNumber = flatNumber;
         this.status = status;
+        this.societyId = societyId;
     }
 
     // Getters and Setters
@@ -44,4 +46,7 @@ public class AuthResponse {
 
     public String getStatus() { return status; }
     public void setStatus(String status) { this.status = status; }
+
+    public Long getSocietyId() { return societyId; }
+    public void setSocietyId(Long societyId) { this.societyId = societyId; }
 }

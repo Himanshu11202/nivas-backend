@@ -66,7 +66,8 @@ public class AuthService {
                 user.getName(),
                 user.getRole().name(),
                 user.getFlatNumber(),
-                user.getStatus().name()
+                user.getStatus().name(),
+                user.getSocietyId()
         );
     }
 
@@ -139,7 +140,8 @@ public class AuthService {
                 savedUser.getName(),
                 savedUser.getRole().name(),
                 savedUser.getFlatNumber(),
-                savedUser.getStatus().name()
+                savedUser.getStatus().name(),
+                savedUser.getSocietyId()
         );
     }
 

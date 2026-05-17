@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -247,31 +248,54 @@ public class SuperAdminController {
             Society society = new Society(societyCode, name, location);
             Society savedSociety = societyRepository.save(society);
 
-            // Create Society Admin if admin details provided
-            User admin = null;
-            if (adminName != null && adminEmail != null && adminPassword != null) {
-                // Check if email already exists
-                if (userRepository.existsByEmail(adminEmail)) {
+            // Create Society Admin if all admin details provided
+            Map<String, Object> adminInfo = null;
+            boolean hasAdminName = adminName != null && !adminName.trim().isEmpty();
+            boolean hasAdminEmail = adminEmail != null && !adminEmail.trim().isEmpty();
+            boolean hasAdminPassword = adminPassword != null && adminPassword.length() >= 6;
+
+            if (hasAdminName || hasAdminEmail || hasAdminPassword) {
+                if (!hasAdminName || !hasAdminEmail || !hasAdminPassword) {
+                    return ResponseEntity.badRequest().body(Map.of(
+                        "error", "Admin name, email, and password (min 6 characters) are all required"
+                    ));
+                }
+
+                String trimmedEmail = adminEmail.trim();
+
+                if (userRepository.existsByEmail(trimmedEmail)) {
                     return ResponseEntity.badRequest().body(Map.of("error", "Admin email already exists"));
                 }
 
-                admin = new User();
-                admin.setName(adminName);
-                admin.setEmail(adminEmail);
+                User admin = new User();
+                admin.setName(adminName.trim());
+                admin.setEmail(trimmedEmail);
                 admin.setPassword(passwordEncoder.encode(adminPassword));
                 admin.setRole(User.Role.SOCIETY_ADMIN);
                 admin.setSocietyId(savedSociety.getId());
-                admin.setPhoneNumber(adminPhone);
+                if (adminPhone != null && !adminPhone.trim().isEmpty()) {
+                    admin.setPhoneNumber(adminPhone.trim());
+                }
                 admin.setStatus(User.UserStatus.ACTIVE);
-                userRepository.save(admin);
+                User savedAdmin = userRepository.save(admin);
+
+                adminInfo = new HashMap<>();
+                adminInfo.put("id", savedAdmin.getId());
+                adminInfo.put("name", savedAdmin.getName());
+                adminInfo.put("email", savedAdmin.getEmail());
+                adminInfo.put("role", savedAdmin.getRole().name());
+                adminInfo.put("societyId", savedAdmin.getSocietyId());
             }
 
-            return ResponseEntity.ok(Map.of(
-                "message", "Society created successfully",
-                "societyCode", savedSociety.getSocietyCode(),
-                "society", savedSociety,
-                "admin", admin
-            ));
+            Map<String, Object> response = new HashMap<>();
+            response.put("message", "Society created successfully");
+            response.put("societyCode", savedSociety.getSocietyCode());
+            response.put("society", savedSociety);
+            if (adminInfo != null) {
+                response.put("admin", adminInfo);
+            }
+
+            return ResponseEntity.ok(response);
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(Map.of("error", "Error creating society: " + e.getMessage()));
         }

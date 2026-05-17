@@ -69,7 +69,8 @@ public class User {
         this.createdAt = LocalDateTime.now();
         if (this.role == Role.RESIDENT) {
             this.status = UserStatus.PENDING;
-        } else if (this.role == Role.SUPER_ADMIN || this.role == Role.ADMIN || this.role == Role.GUARD || this.role == Role.WORKER) {
+        } else if (this.role == Role.SUPER_ADMIN || this.role == Role.ADMIN || this.role == Role.SOCIETY_ADMIN
+                || this.role == Role.GUARD || this.role == Role.WORKER) {
             this.status = UserStatus.ACTIVE;
         }
     }

@@ -21,7 +21,7 @@ public class NoticeController {
 
     // Create Notice
     @PostMapping
-    @PreAuthorize("hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<Notice> createNotice(@Valid @RequestBody Notice notice) {
         try {
             Notice createdNotice = noticeService.createNotice(notice);
@@ -33,7 +33,7 @@ public class NoticeController {
 
     // Update Notice
     @PutMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<Notice> updateNotice(@PathVariable Long id, @Valid @RequestBody Notice notice) {
         try {
             Notice updatedNotice = noticeService.updateNotice(id, notice);
@@ -47,7 +47,7 @@ public class NoticeController {
 
     // Delete Notice
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<Void> deleteNotice(@PathVariable Long id) {
         try {
             noticeService.deleteNotice(id);
@@ -59,7 +59,7 @@ public class NoticeController {
 
     // Get Notice by ID
     @GetMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<Notice> getNoticeById(@PathVariable Long id) {
         try {
             Notice notice = noticeService.getNoticeById(id);
@@ -71,7 +71,7 @@ public class NoticeController {
 
     // Get All Notices (Admin)
     @GetMapping
-    @PreAuthorize("hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<List<Notice>> getAllNotices() {
         List<Notice> notices = noticeService.getAllNotices();
         return ResponseEntity.ok(notices);
@@ -79,7 +79,7 @@ public class NoticeController {
 
     // Get Recent Notices
     @GetMapping("/recent")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<List<Notice>> getRecentNotices() {
         List<Notice> notices = noticeService.getRecentNotices();
         return ResponseEntity.ok(notices);
@@ -87,7 +87,7 @@ public class NoticeController {
 
     // Get Notice Statistics
     @GetMapping("/stats")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<Map<String, Object>> getNoticeStats() {
         Map<String, Object> stats = Map.of(
                 "totalNotices", noticeService.getTotalNotices(),
@@ -111,7 +111,7 @@ public class NoticeController {
 
     // Get notice stats with read/unread counts
     @GetMapping("/{id}/stats")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<Map<String, Object>> getNoticeReadStats(@PathVariable Long id) {
         try {
             Map<String, Object> stats = noticeService.getNoticeReadStats(id);
@@ -123,7 +123,7 @@ public class NoticeController {
 
     // Get list of users who have NOT read the notice
     @GetMapping("/{id}/unread-users")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<List<Map<String, Object>>> getUnreadUsers(@PathVariable Long id) {
         try {
             List<Map<String, Object>> unreadUsers = noticeService.getUnreadUsers(id);
