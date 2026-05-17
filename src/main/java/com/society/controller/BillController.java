@@ -22,7 +22,7 @@ public class BillController {
 
     // Send maintenance to all residents
     @PostMapping("/maintenance/send")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<?> sendMaintenanceToAll(
             @RequestBody Map<String, Object> request) {
         try {
@@ -40,7 +40,7 @@ public class BillController {
 
     // Get all bills (Admin)
     @GetMapping("/bills")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<List<Bill>> getAllBills() {
         try {
             List<Bill> bills = billService.getAllBills();
@@ -52,7 +52,7 @@ public class BillController {
 
     // Search bills by flat number
     @GetMapping("/bills/search")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<List<Bill>> searchBills(@RequestParam String flatNumber) {
         try {
             List<Bill> bills = billService.searchBillsByFlatNumber(flatNumber);
@@ -64,7 +64,7 @@ public class BillController {
 
     // Get bill statistics (Admin)
     @GetMapping("/bills/stats")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<Map<String, Object>> getBillStats() {
         try {
             Map<String, Object> stats = billService.getBillStats();
@@ -145,7 +145,7 @@ public class BillController {
 
     // Check and apply penalties (Admin only)
     @PostMapping("/bills/check-penalties")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<?> checkAndApplyPenalties() {
         try {
             billService.checkAndApplyPenalties();

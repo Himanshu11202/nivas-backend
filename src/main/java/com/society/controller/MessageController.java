@@ -18,7 +18,7 @@ public class MessageController {
 
     // Send message
     @PostMapping
-    @PreAuthorize("hasRole('RESIDENT') or hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasRole('RESIDENT') or hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<?> sendMessage(@RequestBody Map<String, Object> request) {
         try {
             Long senderId = Long.valueOf(request.get("senderId").toString());
@@ -35,7 +35,7 @@ public class MessageController {
 
     // Get chat history for a product
     @GetMapping("/{productId}")
-    @PreAuthorize("hasRole('RESIDENT') or hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasRole('RESIDENT') or hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<?> getChatHistory(
             @PathVariable Long productId,
             @RequestParam Long userId1,

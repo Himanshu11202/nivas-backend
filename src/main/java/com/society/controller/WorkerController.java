@@ -40,14 +40,14 @@ public class WorkerController {
     }
 
     // Admin only endpoints
-    @PreAuthorize("hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     @PostMapping
     public ResponseEntity<Worker> createWorker(@RequestBody Worker worker) {
         Worker savedWorker = workerService.saveWorker(worker);
         return ResponseEntity.ok(savedWorker);
     }
 
-    @PreAuthorize("hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     @PutMapping("/{id}")
     public ResponseEntity<Worker> updateWorker(@PathVariable Long id, @RequestBody Worker worker) {
         worker.setId(id);
@@ -55,7 +55,7 @@ public class WorkerController {
         return ResponseEntity.ok(updatedWorker);
     }
 
-    @PreAuthorize("hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteWorker(@PathVariable Long id) {
         workerService.deleteWorker(id);
@@ -63,14 +63,14 @@ public class WorkerController {
     }
 
     // Attendance stats - admin only
-    @PreAuthorize("hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     @GetMapping("/stats")
     public ResponseEntity<Map<String, Object>> getAttendanceStats() {
         Map<String, Object> stats = workerService.getAttendanceStats();
         return ResponseEntity.ok(stats);
     }
 
-    @PreAuthorize("hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     @GetMapping("/attendance/report/{year}/{month}")
     public ResponseEntity<Map<String, Object>> getMonthlyAttendanceReport(
             @PathVariable int year, @PathVariable int month) {
@@ -78,7 +78,7 @@ public class WorkerController {
         return ResponseEntity.ok(report);
     }
 
-    @PreAuthorize("hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     @GetMapping("/attendance/worker/{workerId}")
     public ResponseEntity<Map<String, Object>> getWorkerAttendanceReport(
             @PathVariable Long workerId,

@@ -15,7 +15,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/guard-attendance")
-@PreAuthorize("hasRole('GUARD') or hasRole('ADMIN')")
+@PreAuthorize("hasAnyRole('GUARD', 'ADMIN', 'SOCIETY_ADMIN')")
 public class GuardAttendanceController {
 
     @Autowired

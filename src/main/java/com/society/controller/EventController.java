@@ -40,7 +40,7 @@ public class EventController {
 
     // Create event (Admin only)
     @PostMapping
-    @PreAuthorize("hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<?> createEvent(@RequestBody Map<String, Object> request) {
         try {
             Long userId = getCurrentUserId();
@@ -69,28 +69,28 @@ public class EventController {
 
     // Get all events
     @GetMapping
-    @PreAuthorize("hasAnyRole('ADMIN', 'SUPER_ADMIN', 'RESIDENT')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN', 'RESIDENT')")
     public ResponseEntity<List<Event>> getAllEvents() {
         return ResponseEntity.ok(eventService.getAllEvents());
     }
 
     // Get upcoming events
     @GetMapping("/upcoming")
-    @PreAuthorize("hasAnyRole('ADMIN', 'SUPER_ADMIN', 'RESIDENT')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN', 'RESIDENT')")
     public ResponseEntity<List<Event>> getUpcomingEvents() {
         return ResponseEntity.ok(eventService.getUpcomingEvents());
     }
 
     // Get past events
     @GetMapping("/past")
-    @PreAuthorize("hasAnyRole('ADMIN', 'SUPER_ADMIN', 'RESIDENT')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN', 'RESIDENT')")
     public ResponseEntity<List<Event>> getPastEvents() {
         return ResponseEntity.ok(eventService.getPastEvents());
     }
 
     // Get event by ID
     @GetMapping("/{id}")
-    @PreAuthorize("hasAnyRole('ADMIN', 'SUPER_ADMIN', 'RESIDENT')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN', 'RESIDENT')")
     public ResponseEntity<?> getEventById(@PathVariable Long id) {
         try {
             Event event = eventService.getEventById(id);
@@ -102,7 +102,7 @@ public class EventController {
 
     // Delete event (Admin only)
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<?> deleteEvent(@PathVariable Long id) {
         try {
             eventService.deleteEvent(id);
@@ -114,7 +114,7 @@ public class EventController {
 
     // RSVP to event
     @PostMapping("/{id}/rsvp")
-    @PreAuthorize("hasRole('RESIDENT') or hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasRole('RESIDENT') or hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<?> rsvpToEvent(@PathVariable Long id, @RequestBody Map<String, String> request) {
         try {
             Long userId = getCurrentUserId();
@@ -132,7 +132,7 @@ public class EventController {
 
     // Get user's response for an event
     @GetMapping("/{id}/response")
-    @PreAuthorize("hasRole('RESIDENT') or hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasRole('RESIDENT') or hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<?> getUserResponse(@PathVariable Long id) {
         Long userId = getCurrentUserId();
         if (userId == null) {
@@ -143,14 +143,14 @@ public class EventController {
 
     // Get event responses (Admin only)
     @GetMapping("/{id}/responses")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<?> getEventResponses(@PathVariable Long id) {
         return ResponseEntity.ok(eventService.getEventResponses(id));
     }
 
     // Get event stats (Admin only)
     @GetMapping("/{id}/stats")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<?> getEventStats(@PathVariable Long id) {
         return ResponseEntity.ok(eventService.getEventStats(id));
     }

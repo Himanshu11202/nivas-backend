@@ -21,7 +21,7 @@ public class ExpenseController {
 
     // Create expense
     @PostMapping
-    @PreAuthorize("hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<?> createExpense(@RequestBody Map<String, Object> request) {
         try {
             Expense expense = new Expense();
@@ -41,49 +41,49 @@ public class ExpenseController {
 
     // Get all expenses
     @GetMapping
-    @PreAuthorize("hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<List<Expense>> getAllExpenses() {
         return ResponseEntity.ok(expenseService.getAllExpenses());
     }
 
     // Get expenses by month
     @GetMapping("/month/{month}/{year}")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<List<Expense>> getExpensesByMonth(@PathVariable int month, @PathVariable int year) {
         return ResponseEntity.ok(expenseService.getExpensesByMonth(month, year));
     }
 
     // Get expenses by month (for residents - read-only)
     @GetMapping("/resident/month/{month}/{year}")
-    @PreAuthorize("hasRole('RESIDENT') or hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasRole('RESIDENT') or hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<List<Expense>> getExpensesByMonthForResident(@PathVariable int month, @PathVariable int year) {
         return ResponseEntity.ok(expenseService.getExpensesByMonth(month, year));
     }
 
     // Get expense stats (for residents - read-only)
     @GetMapping("/resident/stats/{month}/{year}")
-    @PreAuthorize("hasRole('RESIDENT') or hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasRole('RESIDENT') or hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<Map<String, Object>> getExpenseStatsForResident(@PathVariable int month, @PathVariable int year) {
         return ResponseEntity.ok(expenseService.getExpenseStats(month, year));
     }
 
     // Get expense stats
     @GetMapping("/stats/{month}/{year}")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<Map<String, Object>> getExpenseStats(@PathVariable int month, @PathVariable int year) {
         return ResponseEntity.ok(expenseService.getExpenseStats(month, year));
     }
 
     // Get monthly trend
     @GetMapping("/trend")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<List<Map<String, Object>>> getMonthlyTrend() {
         return ResponseEntity.ok(expenseService.getMonthlyTrend());
     }
 
     // Delete expense
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<?> deleteExpense(@PathVariable Long id) {
         try {
             expenseService.deleteExpense(id);
@@ -95,7 +95,7 @@ public class ExpenseController {
 
     // Generate maintenance from expenses
     @PostMapping("/generate-maintenance")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<?> generateMaintenance(@RequestBody Map<String, Object> request) {
         try {
             int month = Integer.parseInt(request.get("month").toString());

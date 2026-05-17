@@ -21,7 +21,7 @@ public class AttendanceController {
     private WorkerService workerService;
 
     @PostMapping("/guard/checkin")
-    @PreAuthorize("hasRole('GUARD') or hasRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('GUARD', 'ADMIN', 'SOCIETY_ADMIN')")
     public ResponseEntity<?> markCheckIn(@RequestBody Map<String, Object> request) {
         try {
             Long workerId = Long.valueOf(request.get("workerId").toString());
@@ -40,7 +40,7 @@ public class AttendanceController {
     }
 
     @PostMapping("/guard/checkout")
-    @PreAuthorize("hasRole('GUARD') or hasRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('GUARD', 'ADMIN', 'SOCIETY_ADMIN')")
     public ResponseEntity<?> markCheckOut(@RequestBody Map<String, Object> request) {
         try {
             Long workerId = Long.valueOf(request.get("workerId").toString());
@@ -58,21 +58,21 @@ public class AttendanceController {
     }
 
     @GetMapping("/guard/today")
-    @PreAuthorize("hasRole('GUARD') or hasRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('GUARD', 'ADMIN', 'SOCIETY_ADMIN')")
     public ResponseEntity<List<Attendance>> getTodayAttendance() {
         List<Attendance> attendance = workerService.getTodayAttendance();
         return ResponseEntity.ok(attendance);
     }
 
     @GetMapping("/guard/worker/{workerId}")
-    @PreAuthorize("hasRole('GUARD') or hasRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('GUARD', 'ADMIN', 'SOCIETY_ADMIN')")
     public ResponseEntity<List<Attendance>> getWorkerAttendance(@PathVariable Long workerId) {
         List<Attendance> attendance = workerService.getWorkerAttendance(workerId);
         return ResponseEntity.ok(attendance);
     }
 
     @GetMapping("/admin/reports/daily")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<Map<String, Object>> getDailyReport(
             @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate date) {
         Map<String, Object> report = workerService.getDailyAttendanceReport(date);
@@ -80,7 +80,7 @@ public class AttendanceController {
     }
 
     @GetMapping("/admin/reports/monthly")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<Map<String, Object>> getMonthlyReport(
             @RequestParam int year,
             @RequestParam int month) {
@@ -89,7 +89,7 @@ public class AttendanceController {
     }
 
     @GetMapping("/admin/reports/worker/{workerId}")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<Map<String, Object>> getWorkerReport(
             @PathVariable Long workerId,
             @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate startDate,

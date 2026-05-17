@@ -18,70 +18,70 @@ public class FlatController {
     private FlatService flatService;
 
     @PostMapping
-    @PreAuthorize("hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<Flat> createFlat(@RequestBody Flat flat) {
         Flat createdFlat = flatService.createFlat(flat);
         return ResponseEntity.ok(createdFlat);
     }
 
     @PutMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<Flat> updateFlat(@PathVariable Long id, @RequestBody Flat flat) {
         Flat updatedFlat = flatService.updateFlat(id, flat);
         return ResponseEntity.ok(updatedFlat);
     }
 
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<Void> deleteFlat(@PathVariable Long id) {
         flatService.deleteFlat(id);
         return ResponseEntity.ok().build();
     }
 
     @GetMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('SUPER_ADMIN') or hasRole('RESIDENT')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN') or hasRole('RESIDENT')")
     public ResponseEntity<Flat> getFlatById(@PathVariable Long id) {
         Flat flat = flatService.getFlatById(id);
         return ResponseEntity.ok(flat);
     }
 
     @GetMapping
-    @PreAuthorize("hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<List<Flat>> getAllFlats() {
         List<Flat> flats = flatService.getAllFlats();
         return ResponseEntity.ok(flats);
     }
 
     @GetMapping("/wing/{wing}")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<List<Flat>> getFlatsByWing(@PathVariable String wing) {
         List<Flat> flats = flatService.getFlatsByWing(wing);
         return ResponseEntity.ok(flats);
     }
 
     @GetMapping("/floor/{floor}")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<List<Flat>> getFlatsByFloor(@PathVariable String floor) {
         List<Flat> flats = flatService.getFlatsByFloor(floor);
         return ResponseEntity.ok(flats);
     }
 
     @GetMapping("/number/{flatNumber}")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('SUPER_ADMIN') or hasRole('RESIDENT')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN') or hasRole('RESIDENT')")
     public ResponseEntity<Flat> getFlatByNumber(@PathVariable String flatNumber) {
         Flat flat = flatService.getFlatByNumber(flatNumber);
         return ResponseEntity.ok(flat);
     }
 
     @GetMapping("/stats")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<Map<String, Object>> getFlatStats() {
         Map<String, Object> stats = flatService.getFlatStats();
         return ResponseEntity.ok(stats);
     }
 
     @GetMapping("/exists/{flatNumber}")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<Boolean> checkFlatExists(@PathVariable String flatNumber) {
         boolean exists = flatService.flatExists(flatNumber);
         return ResponseEntity.ok(exists);

@@ -22,7 +22,7 @@ public class ProductController {
 
     // Get all active products with seller info
     @GetMapping("/products")
-    @PreAuthorize("hasRole('RESIDENT') or hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasRole('RESIDENT') or hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<List<Map<String, Object>>> getAllProducts() {
         List<Map<String, Object>> products = productService.getAllProductsWithSellerInfo();
         return ResponseEntity.ok(products);
@@ -30,7 +30,7 @@ public class ProductController {
 
     // Get product by ID with full details including seller contact
     @GetMapping("/products/{id}")
-    @PreAuthorize("hasRole('RESIDENT') or hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasRole('RESIDENT') or hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<Map<String, Object>> getProductById(@PathVariable Long id) {
         try {
             Map<String, Object> product = productService.getProductWithSellerDetails(id);
@@ -42,7 +42,7 @@ public class ProductController {
 
     // Create new product
     @PostMapping("/products")
-    @PreAuthorize("hasRole('RESIDENT') or hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasRole('RESIDENT') or hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<?> createProduct(@RequestBody Product product, @RequestParam Long userId) {
         try {
             Product savedProduct = productService.createProduct(product, userId);
@@ -54,7 +54,7 @@ public class ProductController {
 
     // Get user's own products
     @GetMapping("/my-products")
-    @PreAuthorize("hasRole('RESIDENT') or hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasRole('RESIDENT') or hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<List<Product>> getMyProducts(@RequestParam Long userId) {
         List<Product> products = productService.getUserProducts(userId);
         return ResponseEntity.ok(products);
@@ -62,7 +62,7 @@ public class ProductController {
 
     // Update user's product
     @PutMapping("/products/{id}")
-    @PreAuthorize("hasRole('RESIDENT') or hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasRole('RESIDENT') or hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<?> updateProduct(
             @PathVariable Long id,
             @RequestBody Product product,
@@ -77,7 +77,7 @@ public class ProductController {
 
     // Delete (deactivate) product
     @DeleteMapping("/products/{id}")
-    @PreAuthorize("hasRole('RESIDENT') or hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasRole('RESIDENT') or hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<?> deleteProduct(@PathVariable Long id, @RequestParam Long userId) {
         try {
             productService.deleteProduct(id, userId);
@@ -89,7 +89,7 @@ public class ProductController {
 
     // Search products
     @GetMapping("/products/search")
-    @PreAuthorize("hasRole('RESIDENT') or hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasRole('RESIDENT') or hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<List<Product>> searchProducts(@RequestParam String query) {
         List<Product> products = productService.searchProducts(query);
         return ResponseEntity.ok(products);
@@ -97,7 +97,7 @@ public class ProductController {
 
     // Filter by category
     @GetMapping("/products/category/{category}")
-    @PreAuthorize("hasRole('RESIDENT') or hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasRole('RESIDENT') or hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<List<Product>> getProductsByCategory(@PathVariable String category) {
         List<Product> products = productService.getProductsByCategory(category);
         return ResponseEntity.ok(products);
@@ -105,7 +105,7 @@ public class ProductController {
 
     // Filter by price range
     @GetMapping("/products/price-range")
-    @PreAuthorize("hasRole('RESIDENT') or hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasRole('RESIDENT') or hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<List<Product>> getProductsByPriceRange(
             @RequestParam BigDecimal min,
             @RequestParam BigDecimal max) {
@@ -115,7 +115,7 @@ public class ProductController {
 
     // Get categories list
     @GetMapping("/categories")
-    @PreAuthorize("hasRole('RESIDENT') or hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasRole('RESIDENT') or hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<List<String>> getCategories() {
         return ResponseEntity.ok(productService.getCategories());
     }
@@ -124,7 +124,7 @@ public class ProductController {
 
     // Get all products (admin only)
     @GetMapping("/admin/products")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<List<Product>> getAllProductsForAdmin() {
         List<Product> products = productService.getAllProductsForAdmin();
         return ResponseEntity.ok(products);
@@ -132,7 +132,7 @@ public class ProductController {
 
     // Admin delete product
     @DeleteMapping("/admin/products/{id}")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<?> adminDeleteProduct(@PathVariable Long id, @RequestParam Long adminId) {
         try {
             productService.deleteProduct(id, adminId);

@@ -37,7 +37,7 @@ public class WorkerAttendanceController {
     }
     
     // NEW: Check In with Request Body
-    @PreAuthorize("hasRole('GUARD') or hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasRole('GUARD') or hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     @PostMapping("/checkin")
     public ResponseEntity<?> checkIn(@RequestBody Map<String, Object> request) {
         try {
@@ -54,7 +54,7 @@ public class WorkerAttendanceController {
     }
 
     // NEW: Check Out with Request Body
-    @PreAuthorize("hasRole('GUARD') or hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasRole('GUARD') or hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     @PostMapping("/checkout")
     public ResponseEntity<?> checkOut(@RequestBody Map<String, Object> request) {
         try {
@@ -108,14 +108,14 @@ public class WorkerAttendanceController {
     }
     
     // Get attendance stats for admin dashboard
-    @PreAuthorize("hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     @GetMapping("/stats")
     public ResponseEntity<Map<String, Object>> getAttendanceStats() {
         return ResponseEntity.ok(attendanceService.getDetailedStats());
     }
     
     // Get monthly report for a worker
-    @PreAuthorize("hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     @GetMapping("/worker/{workerId}/monthly")
     public ResponseEntity<Map<String, Object>> getMonthlyReport(
             @PathVariable Long workerId,

@@ -22,49 +22,49 @@ public class MaintenanceController {
 
     // Admin endpoints
     @PostMapping("/admin/create")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<Maintenance> createMaintenance(@Valid @RequestBody Maintenance maintenance) {
         Maintenance createdMaintenance = maintenanceService.createMaintenance(maintenance);
         return ResponseEntity.ok(createdMaintenance);
     }
 
     @PutMapping("/admin/{id}")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<Maintenance> updateMaintenance(@PathVariable Long id, @Valid @RequestBody Maintenance maintenance) {
         Maintenance updatedMaintenance = maintenanceService.updateMaintenance(id, maintenance);
         return ResponseEntity.ok(updatedMaintenance);
     }
 
     @DeleteMapping("/admin/{id}")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<Void> deleteMaintenance(@PathVariable Long id) {
         maintenanceService.deleteMaintenance(id);
         return ResponseEntity.ok().build();
     }
 
     @GetMapping("/admin/all")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<List<Maintenance>> getAllMaintenance() {
         List<Maintenance> maintenanceList = maintenanceService.getAllMaintenance();
         return ResponseEntity.ok(maintenanceList);
     }
 
     @GetMapping("/admin/stats")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<Map<String, Object>> getMaintenanceStats() {
         Map<String, Object> stats = maintenanceService.getMaintenanceStats();
         return ResponseEntity.ok(stats);
     }
 
     @GetMapping("/admin/report/monthly/{year}/{month}")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<Map<String, Object>> getMonthlyReport(@PathVariable int year, @PathVariable int month) {
         Map<String, Object> report = maintenanceService.getMonthlyReport(year, month);
         return ResponseEntity.ok(report);
     }
 
     @PostMapping("/admin/generate-monthly")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('SUPER_ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SOCIETY_ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<String> generateMonthlyMaintenance(
             @RequestParam int year,
             @RequestParam int month,
