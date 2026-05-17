@@ -7,6 +7,7 @@ import com.society.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -219,6 +220,7 @@ public class SuperAdminController {
 
     // Create Society
     @PostMapping("/societies")
+    @Transactional(rollbackFor = Exception.class)
     public ResponseEntity<?> createSociety(@RequestBody Map<String, String> request) {
         try {
             String name = request.get("name");
@@ -234,22 +236,6 @@ public class SuperAdminController {
                 return ResponseEntity.badRequest().body(Map.of("error", "Society name is required"));
             }
 
-            // Check if society with same name already exists
-            if (societyRepository.existsByName(name)) {
-                return ResponseEntity.badRequest().body(Map.of("error", "Society with this name already exists"));
-            }
-
-            // Generate unique society code
-            String societyCode;
-            do {
-                societyCode = "SOC" + (10000 + new Random().nextInt(90000));
-            } while (societyRepository.existsBySocietyCode(societyCode));
-
-            Society society = new Society(societyCode, name, location);
-            Society savedSociety = societyRepository.save(society);
-
-            // Create Society Admin if all admin details provided
-            Map<String, Object> adminInfo = null;
             boolean hasAdminName = adminName != null && !adminName.trim().isEmpty();
             boolean hasAdminEmail = adminEmail != null && !adminEmail.trim().isEmpty();
             boolean hasAdminPassword = adminPassword != null && adminPassword.length() >= 6;
@@ -260,12 +246,31 @@ public class SuperAdminController {
                         "error", "Admin name, email, and password (min 6 characters) are all required"
                     ));
                 }
+            }
 
-                String trimmedEmail = adminEmail.trim();
+            // Check if society with same name already exists
+            if (societyRepository.existsByName(name.trim())) {
+                return ResponseEntity.badRequest().body(Map.of("error", "Society with this name already exists"));
+            }
 
-                if (userRepository.existsByEmail(trimmedEmail)) {
-                    return ResponseEntity.badRequest().body(Map.of("error", "Admin email already exists"));
-                }
+            String trimmedEmail = hasAdminEmail ? adminEmail.trim() : null;
+            if (trimmedEmail != null && userRepository.existsByEmail(trimmedEmail)) {
+                return ResponseEntity.badRequest().body(Map.of("error", "Admin email already exists"));
+            }
+
+            // Generate unique society code
+            String societyCode;
+            do {
+                societyCode = "SOC" + (10000 + new Random().nextInt(90000));
+            } while (societyRepository.existsBySocietyCode(societyCode));
+
+            Society society = new Society(societyCode, name.trim(), location);
+            Society savedSociety = societyRepository.save(society);
+
+            // Create Society Admin if all admin details provided
+            Map<String, Object> adminInfo = null;
+
+            if (hasAdminName && hasAdminEmail && hasAdminPassword) {
 
                 User admin = new User();
                 admin.setName(adminName.trim());
